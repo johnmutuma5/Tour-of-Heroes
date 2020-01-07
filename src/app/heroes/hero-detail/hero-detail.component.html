@@ -1,5 +1,5 @@
 <div *ngIf="hero$ | appAsync as hero">
-  <button type="button" (click)="goToHeros()">Back</button>  
+  <button class="bg-lightblue cursor-pointer text-white rounded" type="button" (click)="goToHeros(hero)">Back</button>  
   <h2>{{hero.name | uppercase}} Details</h2>
   <div><span>id: </span>{{hero.id}}</div>
   <div>

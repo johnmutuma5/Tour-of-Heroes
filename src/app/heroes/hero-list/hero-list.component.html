@@ -1,7 +1,10 @@
-<h2>HEROS</h2>
+<h2>HEROES</h2>
 <ul class="heroes">
-  <li *ngFor="let hero of heroes">
-    <a [routerLink]="[ '/hero', hero.id ]">
+  <li *ngFor="let hero of heroes"
+    class="pink"
+    [ngClass]="{'bg-gray': !isPrevioslyViewedHero(hero),
+                'bg-lightblue': isPrevioslyViewedHero(hero)}">
+    <a [class.text-white]="isPrevioslyViewedHero(hero)" [routerLink]="[ '/hero', hero.id ]">
       <span class="badge">{{hero.id}}</span> {{hero.name}}
     </a>
   </li>

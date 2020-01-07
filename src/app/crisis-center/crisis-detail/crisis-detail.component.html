@@ -1,0 +1,10 @@
+<div *ngIf="crisis$ | appAsync as crisis">
+  <button class="bg-lightblue cursor-pointer text-white rounded" type="button" (click)="goToCrises(crisis)">Back</button>  
+  <h2>{{crisis.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{crisis.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="crisis.name" placeholder="name"/>
+    </label>
+  </div>
+</div>

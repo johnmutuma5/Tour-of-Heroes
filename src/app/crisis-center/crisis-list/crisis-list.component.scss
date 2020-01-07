@@ -1,11 +1,10 @@
-
-/* HeroesComponent's private CSS styles */
-.heroes {
+/* CrisesComponent's private CSS styles */
+.crises {
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
 }
-.heroes li {
+.crises li {
   display: flex;
   cursor: pointer;
   position: relative;
@@ -19,20 +18,20 @@
     height: 100%;
   }
 }
-.heroes li:hover {
+.crises li:hover {
   color: #607D8B;
   background-color: #DDD;
   left: .1em;
 }
-.heroes li.selected {
+.crises li.selected {
   background-color: #CFD8DC;
   color: white;
 }
-.heroes li.selected:hover {
+.crises li.selected:hover {
   background-color: #BBD8DC;
   color: white;
 }
-.heroes .badge {
+.crises .badge {
   display: inline-block;
   font-size: small;
   color: white;

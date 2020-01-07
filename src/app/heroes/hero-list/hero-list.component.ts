@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
@@ -10,18 +11,20 @@ import { HeroService } from '../hero.service';
 })
 export class HeroListComponent implements OnInit {
 
-  selectedHero: Hero;
-
   heroes: Hero[];
+  previousHeroId: number;
 
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService,
+              private currentRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.getHeroes();
+    this.previousHeroId = +this.currentRoute.snapshot.paramMap.get('heroId');
+    console.log(this.previousHeroId);
   }
 
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
+  isPrevioslyViewedHero(hero: Hero) {
+    return this.previousHeroId === hero.id;
   }
 
   getHeroes(): void {
@@ -29,4 +32,3 @@ export class HeroListComponent implements OnInit {
         .subscribe(heroes => this.heroes = heroes);
   }
 }
-

@@ -4,20 +4,20 @@ import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CrisisListComponent } from './crisis-list/crisis-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HeroesModule } from './heroes/heroes.module';
+import { CrisisCenterModule } from './crisis-center/crisis-center.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CrisisListComponent,
     PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
     HeroesModule,
+    CrisisCenterModule,
     AppRoutingModule, // this contains the wildcard route, so it need to be last here for angular to match routes in feature routing modules
   ],
   providers: [],
