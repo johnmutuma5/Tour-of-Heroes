@@ -12,9 +12,6 @@ export class AppComponent {
   title = 'tour-of-heroes';
 
   getAnimationData(outlet: RouterOutlet) {
-    const data = outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
-    console.log(outlet);
-    // console.log(data);
-    return data;
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
   }
 }

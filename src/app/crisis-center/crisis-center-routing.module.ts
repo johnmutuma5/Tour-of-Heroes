@@ -11,7 +11,7 @@ const routes: Routes = [
     component: CrisisCenterComponent,
     children: [
       { path: '', component: CrisisListComponent },
-      { path: ':id', component: CrisisDetailComponent },
+      { path: ':id', component: CrisisDetailComponent, outlet: 'crisis-detail' },
     ],
   },
 ];

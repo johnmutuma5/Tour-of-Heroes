@@ -1,10 +1,10 @@
 <h2>CRISES</h2>
 <ul class="crises">
   <li *ngFor="let crisis of crises"
-    class="pink"
-    [ngClass]="{'bg-gray': !isPrevioslyViewedCrisis(crisis),
-                'bg-lightblue': isPrevioslyViewedCrisis(crisis)}">
-    <a [class.text-white]="isPrevioslyViewedCrisis(crisis)" [routerLink]="[ '/crisis-center', crisis.id ]">
+      [ngClass]="{'bg-gray': !isPrevioslyViewedCrisis(crisis),
+                  'bg-lightblue': isPrevioslyViewedCrisis(crisis)}">
+    <a [class.text-white]="isPrevioslyViewedCrisis(crisis)"
+       [routerLink]="['.', { outlets: { 'crisis-detail': [crisis.id] } }]">
       <span class="badge">{{crisis.id}}</span> {{crisis.name}}
     </a>
   </li>

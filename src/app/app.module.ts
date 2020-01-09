@@ -6,16 +6,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HeroesModule } from './heroes/heroes.module';
+import { SharedModule } from './shared/shared.module';
 import { CrisisCenterModule } from './crisis-center/crisis-center.module';
+import { ComposeMessageComponent } from './compose-message/compose-message.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
+    ComposeMessageComponent,
   ],
   imports: [
     BrowserModule,
+    SharedModule,
     HeroesModule,
     CrisisCenterModule,
     AppRoutingModule, // this contains the wildcard route, so it need to be last here for angular to match routes in feature routing modules
