@@ -25,14 +25,10 @@ export class CrisisDetailComponent implements OnInit, HasCanDeactivate {
   ) { }
 
   ngOnInit() {
-    this.activatedRoute.paramMap.pipe(
-      switchMap(params => {
-        return this.service.getCrisis(params.get('id'));
-      })
-    ).subscribe((crisis: Crisis) => {
-        this.crisis = crisis;
-        this.editName = crisis.name;
-      });
+    this.activatedRoute.data.subscribe((data: { crisis: Crisis }) => {
+      this.crisis = data.crisis;
+      this.editName = data.crisis.name;
+    });
   }
 
   goToCrises(crisis: Crisis) {

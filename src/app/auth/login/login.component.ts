@@ -1,5 +1,5 @@
 import { Component }   from '@angular/core';
-import { Router, ActivatedRoute }      from '@angular/router';
+import { Router, ActivatedRoute, NavigationExtras }      from '@angular/router';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -24,7 +24,6 @@ export class LoginComponent {
 
   login() {
     this.message = 'Trying to log in ...';
-    console.log();
 
     this.authService.login().subscribe(() => {
       this.setMessage();
@@ -34,7 +33,13 @@ export class LoginComponent {
         const redirectUrl = this.activatedRoute.snapshot.paramMap.get('redirectUrl');
 
         // Redirect the user
-        this.router.navigateByUrl(this.router.parseUrl(redirectUrl ? redirectUrl: '/admin'));
+        const navigationExtras: NavigationExtras = {
+          queryParamsHandling: 'preserve',
+          preserveFragment: true,
+        };
+        // this.router.navigateByUrl(this.router.parseUrl(redirectUrl ? redirectUrl: '/admin'), navigationExtras); // this won't work 20th Jan 2019 https://github.com/angular/angular/issues/18798
+        const redirect: string  = redirectUrl ? redirectUrl: '/admin';
+        this.router.navigate([redirect], navigationExtras);
       }
     });
   }

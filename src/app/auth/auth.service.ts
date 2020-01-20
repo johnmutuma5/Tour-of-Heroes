@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { delay, tap } from 'rxjs/operators';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +28,11 @@ export class AuthService {
 
   displayLoginAndOnSuccessReturnTo(targetUrl: string) {
     this.redirectUrl = targetUrl;
-    this.router.navigate(['/login', {redirectUrl: targetUrl}]);
+    let sessionId: number = 123456789;
+    let navigationExtras: NavigationExtras = {
+      queryParams: { session_id: sessionId },
+      fragment: 'anchor',
+    };
+    this.router.navigate(['/login', {redirectUrl: targetUrl}], navigationExtras);
   }
 }
