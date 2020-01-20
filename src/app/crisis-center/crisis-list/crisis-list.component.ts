@@ -20,7 +20,6 @@ export class CrisisListComponent implements OnInit {
   ngOnInit() {
     this.getCrises();
     this.previousCrisisId = +this.currentRoute.snapshot.paramMap.get('crisisId');
-    console.log(this.previousCrisisId);
   }
 
   isPrevioslyViewedCrisis(crisis: Crisis) {

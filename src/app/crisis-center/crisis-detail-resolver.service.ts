@@ -18,11 +18,9 @@ export class CrisisDetailResolverService implements Resolve<Crisis> {
   ) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Crisis> | Observable<never> {
-    console.log('take your observable sir');
     return this.cs.getCrisis(route.paramMap.get('id')).pipe(
       take(1),
       mergeMap(crisis => {
-        console.log(crisis);
         if(crisis) return of(crisis)
 
         this.router.navigate(['/crisis-center']);

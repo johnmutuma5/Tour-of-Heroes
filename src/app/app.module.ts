@@ -9,6 +9,8 @@ import { HeroesModule } from './heroes/heroes.module';
 import { SharedModule } from './shared/shared.module';
 import { CrisisCenterModule } from './crisis-center/crisis-center.module';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
+import { AdminModule } from './admin/admin.module';
+import { AuthModule } from './auth/auth.module';
 
 
 @NgModule({
@@ -22,6 +24,8 @@ import { ComposeMessageComponent } from './compose-message/compose-message.compo
     SharedModule,
     HeroesModule,
     CrisisCenterModule,
+    AdminModule,
+    AuthModule,
     AppRoutingModule, // this contains the wildcard route, so it need to be last here for angular to match routes in feature routing modules
   ],
   providers: [],
