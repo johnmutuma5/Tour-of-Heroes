@@ -21,7 +21,7 @@ export class CrisisDetailResolverService implements Resolve<Crisis> {
     return this.cs.getCrisis(route.paramMap.get('id')).pipe(
       take(1),
       mergeMap(crisis => {
-        if(crisis) return of(crisis)
+        if(crisis) return of(crisis);
 
         this.router.navigate(['/crisis-center']);
         return EMPTY;

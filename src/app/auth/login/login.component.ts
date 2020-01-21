@@ -37,7 +37,7 @@ export class LoginComponent {
           queryParamsHandling: 'preserve',
           preserveFragment: true,
         };
-        // this.router.navigateByUrl(this.router.parseUrl(redirectUrl ? redirectUrl: '/admin'), navigationExtras); // this won't work 20th Jan 2019 https://github.com/angular/angular/issues/18798
+        // this.router.navigateByUrl(this.router.parseUrl(redirectUrl ? redirectUrl: '/admin'), navigationExtras); // this won't handle navigation extras well 20th Jan 2019 https://github.com/angular/angular/issues/18798
         const redirect: string  = redirectUrl ? redirectUrl: '/admin';
         this.router.navigate([redirect], navigationExtras);
       }
