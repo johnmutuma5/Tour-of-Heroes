@@ -1,8 +1,22 @@
-<h1>Tour of Heroes</h1>
-<nav>
-  <a routerLink="/heroes" routerLinkActive="active">Heros</a>&nbsp;
-  <a routerLink="/crisis-center" routerLinkActive="active">Crisis Center</a>&nbsp;
-  <a routerLink="/admin" routerLinkActive="active">Admin</a>
+<div class="flex w-full bg-primary-300">
+    <h1 class="monospace border border-1 p-1 text-primary-600">Tour of Heroes</h1>
+</div>
+<nav class="flex w-full bg-gray-300">
+  <a routerLink="/heroes"
+     routerLinkActive="active"
+     class="p-2 hover:bg-secondary-700 hover:text-white transition-bg">
+      Heros
+  </a>
+  <a routerLink="/crisis-center"
+     routerLinkActive="active"
+     class="p-2 text-decoration-none hover:bg-secondary-700 hover:text-white transition-bg">
+      Crisis Center
+  </a>
+  <a routerLink="/admin"
+     routerLinkActive="active"
+     class="p-2 hover:bg-secondary-700 hover:text-white transition-bg">
+      Admin
+  </a>
 </nav>
 <div [@routeAnimation]="getAnimationData(routerOutlet)">
   <router-outlet #routerOutlet="outlet"></router-outlet>
