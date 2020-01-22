@@ -26,6 +26,10 @@ body {
   color: $primary-600;
 }
 
+.text-primary-300 {
+  color: $primary-300;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -45,6 +49,11 @@ body {
 .bg-primary-300 {
   background-color: $primary-300;
 }
+
+.bg-primary-600 {
+  background-color: $primary-600;
+}
+
 .bg-gray-300 {
   background-color: #EAE4EA;
 }
