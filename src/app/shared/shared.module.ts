@@ -9,14 +9,9 @@ import { AppAsyncPipe } from './pipes/app-async.pipe';
   declarations: [
     AppAsyncPipe,
   ],
-  imports: [
-    CommonModule,
-    BrowserAnimationsModule,
-    FormsModule,
-  ],
   exports: [
     AppAsyncPipe,
-    BrowserAnimationsModule,
+    CommonModule,
     FormsModule,
   ]
 })

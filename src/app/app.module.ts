@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
@@ -7,7 +8,6 @@ import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HeroesModule } from './heroes/heroes.module';
 import { SharedModule } from './shared/shared.module';
-import { CrisisCenterModule } from './crisis-center/crisis-center.module';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
 import { AuthModule } from './auth/auth.module';
 
@@ -20,9 +20,9 @@ import { AuthModule } from './auth/auth.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     SharedModule,
     HeroesModule,
-    CrisisCenterModule,
     AuthModule,
     AppRoutingModule, // this contains the wildcard route, so it need to be last here for angular to match routes in feature routing modules
   ],

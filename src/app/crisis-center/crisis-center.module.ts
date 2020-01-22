@@ -10,7 +10,6 @@ import { CrisisDetailComponent } from './crisis-detail/crisis-detail.component';
 
 @NgModule({
   imports: [
-    CommonModule,
     SharedModule,
     CrisisCenterRoutingModule
   ],
