@@ -45,8 +45,8 @@ export class CrisisDetailComponent implements OnInit, HasCanDeactivate {
   }
 
   canDeactivate(): Observable<boolean> | boolean {
-    console.clear();
-    console.log('Returning dialog observable')
+    if(!this.editName || (this.crisis.name === this.editName))
+      return true;
     return this.dialogService.confirm('Discard changes?');
   }
 
