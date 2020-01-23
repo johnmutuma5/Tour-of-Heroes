@@ -1,2 +1,10 @@
 <p>SessionId: {{sessionId$ | async}}</p>
 <p>Token: {{token$ | async}}</p>
+
+Check below for a list of preloaded modules in the app:
+<ul>
+    <li *ngFor="let moduleName of preloadedModules">
+        {{ moduleName }} 
+        <a [routerLink]="['/', moduleName]">Try here</a>
+    </li>
+</ul>
