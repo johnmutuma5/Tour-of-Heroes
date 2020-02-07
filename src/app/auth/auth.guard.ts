@@ -4,10 +4,8 @@ import {
   Router,
   CanActivate,
   ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-  UrlTree,
+  RouterStateSnapshot
 } from '@angular/router';
-import { Observable } from 'rxjs';
 
 import { AuthService } from '../auth/auth.service';
 
@@ -15,23 +13,19 @@ import { AuthService } from '../auth/auth.service';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(
-      private authService: AuthService,
-      private router: Router,
-  ) { }
+  constructor(private authService: AuthService, private router: Router) {}
 
-  canActivate(
-      next: ActivatedRouteSnapshot,
-      state: RouterStateSnapshot
-  ): boolean {
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     console.log('canActivate AuthGuard');
 
     const url: string = state.url;
-    return  this.handleCheckUserLoginStatus(url);
+    return this.handleCheckUserLoginStatus(url);
   }
 
-  canActivateChild(route: ActivatedRouteSnapshot,
-                   state: RouterStateSnapshot): boolean {
+  canActivateChild(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): boolean {
     console.log('canActivateChild AuthGuard');
     return this.canActivate(route, state);
   }
@@ -42,8 +36,9 @@ export class AuthGuard implements CanActivate {
   }
 
   handleCheckUserLoginStatus(targetUrl: string): boolean {
-    if(this.authService.isLoggedIn) return true;
-
+    if (this.authService.isLoggedIn) {
+      return true;
+    }
     this.authService.displayLoginAndOnSuccessReturnTo(targetUrl);
     return false;
   }

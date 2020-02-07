@@ -11,7 +11,7 @@ export class SelectivePreloadingStrategyService implements PreloadingStrategy {
   constructor() { }
 
   preload(routeConfig: Route, load: () => Observable<any>): Observable<any> {
-    if(routeConfig.data && routeConfig.data.preload) {
+    if (routeConfig.data && routeConfig.data.preload) {
       this.preloadedModules.push(routeConfig.path);
       return load();
     }

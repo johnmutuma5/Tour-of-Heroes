@@ -1,17 +1,17 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {ModuleWithProviders, NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {AuthGuard} from './auth/auth.guard';
+import {ComposeMessageComponent} from './compose-message/compose-message.component';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {SelectivePreloadingStrategyService} from './selective-preloading-strategy.service';
 
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ComposeMessageComponent } from './compose-message/compose-message.component';
 
-import { AuthGuard } from './auth/auth.guard';
-import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
 
 const appRoutes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(mod => mod.AdminModule),
-    canLoad: [AuthGuard],
+    canLoad: [ AuthGuard ],
   },
   {
     path: 'crisis-center',
@@ -20,7 +20,7 @@ const appRoutes: Routes = [
   },
   { path: '', redirectTo: '/heroes', pathMatch: 'full', },
   { path: 'compose', component: ComposeMessageComponent, outlet: 'popup' },
-  { path: '**', component: PageNotFoundComponent, }
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 const ConfiguredModule: ModuleWithProviders<RouterModule> = RouterModule.forRoot(

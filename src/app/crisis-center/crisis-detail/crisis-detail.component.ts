@@ -5,7 +5,7 @@ import { switchMap } from 'rxjs/operators';
 
 import { Crisis } from '../crisis';
 import { HasCanDeactivate } from '../../shared/models';
-import { CrisisService } from '../crisis.service';
+// import { CrisisService } from '../crisis.service';
 import { DialogService } from '../../dialog.service';
 
 @Component({
@@ -20,7 +20,7 @@ export class CrisisDetailComponent implements OnInit, HasCanDeactivate {
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private service: CrisisService,
+    // private service: CrisisService,
     private dialogService: DialogService,
   ) { }
 
@@ -45,8 +45,9 @@ export class CrisisDetailComponent implements OnInit, HasCanDeactivate {
   }
 
   canDeactivate(): Observable<boolean> | boolean {
-    if(!this.editName || (this.crisis.name === this.editName))
+    if (!this.editName || (this.crisis.name === this.editName)) {
       return true;
+    }
     return this.dialogService.confirm('Discard changes?');
   }
 

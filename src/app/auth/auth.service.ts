@@ -7,18 +7,15 @@ import { Router, NavigationExtras } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-
-  isLoggedIn: boolean = false;
+  isLoggedIn  = false;
   redirectUrl: string;
 
-  constructor(
-      private router: Router,
-  ){}
+  constructor(private router: Router) {}
 
   login(): Observable<boolean> {
     return of(true).pipe(
       delay(1000),
-      tap((val: boolean) => this.isLoggedIn = val)
+      tap((val: boolean) => (this.isLoggedIn = val))
     );
   }
 
@@ -28,11 +25,14 @@ export class AuthService {
 
   displayLoginAndOnSuccessReturnTo(targetUrl: string) {
     this.redirectUrl = targetUrl;
-    let sessionId: number = 123456789;
-    let navigationExtras: NavigationExtras = {
+    const sessionId = 123456789;
+    const navigationExtras: NavigationExtras = {
       queryParams: { session_id: sessionId },
-      fragment: 'anchor',
+      fragment: 'anchor'
     };
-    this.router.navigate(['/login', {redirectUrl: targetUrl}], navigationExtras);
+    this.router.navigate(
+      ['/login', { redirectUrl: targetUrl }],
+      navigationExtras
+    );
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from  '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { SelectivePreloadingStrategyService } from '../../selective-preloading-strategy.service';
 
 import { Observable } from 'rxjs';
@@ -27,7 +27,7 @@ export class AdminDashboardComponent implements OnInit {
       tap(params => console.log(params)),
       map((params: Params) => {
         const sessionId = params.get('session_id');
-        return sessionId || 'None'
+        return sessionId || 'None';
       })
     );
 
